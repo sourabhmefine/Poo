@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Trading Platform</h1>
+            <div class="user-info">
+                <span class="balance">Balance: $<span id="balance">10000.00</span></span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Portfolio Overview -->
+            <section class="portfolio-section">
+                <h2>Portfolio Overview</h2>
+                <div class="portfolio-stats">
+                    <div class="stat-card">
+                        <h3>Total Value</h3>
+                        <p class="stat-value">$<span id="total-value">10000.00</span></p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total P&L</h3>
+                        <p class="stat-value" id="total-pl">$0.00</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Holdings</h3>
+                        <p class="stat-value" id="holdings-count">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trading Interface -->
+            <section class="trading-section">
+                <div class="price-display">
+                    <h2>Live Prices</h2>
+                    <div class="price-ticker" id="price-ticker">
+                        <!-- Price cards will be dynamically added here -->
+                    </div>
+                </div>
+
+                <div class="trade-form-container">
+                    <h2>Place Order</h2>
+                    <form id="trade-form" class="trade-form">
+                        <div class="form-group">
+                            <label for="symbol">Symbol</label>
+                            <select id="symbol" required>
+                                <option value="AAPL">AAPL</option>
+                                <option value="GOOGL">GOOGL</option>
+                                <option value="MSFT">MSFT</option>
+                                <option value="AMZN">AMZN</option>
+                                <option value="TSLA">TSLA</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" id="quantity" min="1" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Current Price</label>
+                            <p class="current-price">$<span id="current-price">0.00</span></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Total Cost</label>
+                            <p class="total-cost">$<span id="total-cost">0.00</span></p>
+                        </div>
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-buy" data-action="buy">Buy</button>
+                            <button type="submit" class="btn btn-sell" data-action="sell">Sell</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Holdings -->
+            <section class="holdings-section">
+                <h2>Your Holdings</h2>
+                <div class="holdings-table">
+                    <table id="holdings-table">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Quantity</th>
+                                <th>Avg. Price</th>
+                                <th>Current Price</th>
+                                <th>P&L</th>
+                                <th>P&L %</th>
+                            </tr>
+                        </thead>
+                        <tbody id="holdings-body">
+                            <tr class="no-data">
+                                <td colspan="6">No holdings yet. Start trading!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Transaction History -->
+            <section class="history-section">
+                <h2>Transaction History</h2>
+                <div class="history-table">
+                    <table id="history-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Type</th>
+                                <th>Symbol</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body">
+                            <tr class="no-data">
+                                <td colspan="6">No transactions yet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
